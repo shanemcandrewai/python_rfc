@@ -4,6 +4,9 @@
 #### Add the subdirectory "lib" of the SDK to the operating system's library path environment variable
 ##### Example
     C:\Users\shane\dev\nwrfcsdk\lib
+#### Set SAPNWRFC_HOME environment variable to that location
+##### Example
+    C:\Users\shane\dev\nwrfcsdk\
 ### On Windows, the [Microsoft C Runtime DLLs version 12.0](https://support.microsoft.com/en-us/help/4032938) (Visual C++ 2013) are required.
 ### [PyRFC](https://github.com/SAP/PyRFC)
 #### [Upgrade pip](https://pip.pypa.io/en/stable/installing/#upgrading-pip)
