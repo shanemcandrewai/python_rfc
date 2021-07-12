@@ -3,9 +3,11 @@
 ### Download installation files for the [SAP NW RFC SDK](https://launchpad.support.sap.com/#/softwarecenter/template/products/_APP=00200682500000001943&_EVENT=DISPHIER&HEADER=Y&FUNCTIONBAR=N&EVENT=TREE&NE=NAVIGATE&ENR=01200314690100002214&V=MAINT)
 #### Add the subdirectory "lib" of the SDK to the operating system's library path environment variable
 ##### Example
+###### Windows
     C:\Users\shane\dev\nwrfcsdk\lib
 #### Set SAPNWRFC_HOME environment variable to that location
 ##### Example
+###### Windows
     C:\Users\shane\dev\nwrfcsdk\
 ### On Windows, the [Microsoft C Runtime DLLs version 12.0](https://support.microsoft.com/en-us/help/4032938) (Visual C++ 2013) are required.
 ### [PyRFC](https://github.com/SAP/PyRFC)
@@ -13,3 +15,16 @@
     python -m pip install -U pip
 #### [Download and installation PyRFC](https://github.com/SAP/PyRFC#download-and-installation)
     pip install pyrfc
+## Usage
+    from pyrfc import Connection
+    abap_system = {
+      'user'      : 'ZMCANSH1',
+      'passwd'    : 'xxx',
+      'ashost'    : 'ITBOLTE4AS01',
+      'sysnr'     : '00',
+      'client'    : '310',
+      'lang'      : 'EN'
+      }
+    conn = Connection(**abap_system)
+    print(conn.call('RFC_READ_TABLE', QUERY_TABLE='T001'))
+
