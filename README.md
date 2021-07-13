@@ -15,7 +15,7 @@
     python -m pip install -U pip
 #### [Download and installation PyRFC](https://github.com/SAP/PyRFC#download-and-installation)
     pip install pyrfc
-## Usage
+## Example Usage
     from pyrfc import Connection
     abap_system = {
       'user'      : 'ZMCANSH1',
@@ -26,5 +26,5 @@
       'lang'      : 'EN'
       }
     conn = Connection(**abap_system)
-    print(conn.call('RFC_READ_TABLE', QUERY_TABLE='T001'))
+    conn.call('/SAPDS/RFC_READ_TABLE', QUERY_TABLE = 'T000', DELIMITER = ',', OPTIONS = ['MANDT EQ 200'])['DATA']
 
