@@ -16,6 +16,7 @@
 #### [Download and installation PyRFC](https://github.com/SAP/PyRFC#download-and-installation)
     pip install pyrfc
 ## Example Usage
+### Intialization
     from pyrfc import Connection
     abap_system = {
       'user'      : 'ZMCANSH1',
@@ -26,5 +27,11 @@
       'lang'      : 'EN'
       }
     conn = Connection(**abap_system)
+#### Select from a single table	
     conn.call('/SAPDS/RFC_READ_TABLE', QUERY_TABLE = 'T000', DELIMITER = ',', OPTIONS = ['MANDT EQ 200'])['DATA']
+### Execute ABAP statements from files
+    with open('Z_INCONSISTANT_ROUTES.txt') as f:
+	    prog = f.read().splitlines()
+		out = conn.call('/SAPDS/RFC_ABAP_INSTALL_RUN', PROGRAM=prog)['WRITES']
+    print(out)	
 
