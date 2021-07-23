@@ -31,6 +31,6 @@
     conn.call('/SAPDS/RFC_READ_TABLE', QUERY_TABLE = 'T000',
 	    DELIMITER = ',', OPTIONS = ['MANDT EQ 200'])['DATA']
 #### Execute ABAP statements from a file
-    with open('Z_INCONSISTANT_ROUTES.abap') as f:
+    with open('ZEWM_INCONSISTANT_ROUTES.abap') as f:
         prog = f.read().splitlines()
     conn.call('/SAPDS/RFC_ABAP_INSTALL_RUN', PROGRAM=prog)['WRITES']

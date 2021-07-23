@@ -1,4 +1,6 @@
-REPORT z_inconsistant_routes NO STANDARD PAGE HEADING.
+REPORT zewm_inconsistant_routes NO STANDARD PAGE HEADING.
+
+* Report inconsistant routes between Sales / Logistics Excution / EWM
 
 TYPES : BEGIN OF t_flow,
           vbeln      TYPE vbap-vbeln,
@@ -24,14 +26,13 @@ SELECT DISTINCT vbap~vbeln, vbap~posnr, vbap~route,
   ON vbfa~vbeln = /scdl/db_refdoc~refdocno
   INNER JOIN /scdl/db_proch_o
   ON /scdl/db_refdoc~docid = /scdl/db_proch_o~docid
-  WHERE "vbap~vbeln = '0000035574' AND
+  WHERE
   vbfa~vbtyp_v = 'C' AND
   vbfa~vbtyp_n = 'J' AND (
     vbap~route <> likp~route
     OR vbap~route <> /scdl/db_proch_o~route_id
     OR likp~route <>  /scdl/db_proch_o~route_id )
   INTO TABLE @lt_flow
-  UP TO 100 ROWS
 .
 
 DATA l_out(1000).
