@@ -30,7 +30,7 @@
 #### Select from a single table	
     conn.call('/SAPDS/RFC_READ_TABLE', QUERY_TABLE = 'T000',
 	    DELIMITER = ',', OPTIONS = ['MANDT EQ 200'])['DATA']
-#### Execute ABAP statements from a file
+#### Execute ABAP report from an external file
     with open('ZEWM_INCONSISTANT_ROUTES.abap') as f:
         prog = f.read().splitlines()
     conn.call('/SAPDS/RFC_ABAP_INSTALL_RUN', PROGRAM=prog)['WRITES']
