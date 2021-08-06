@@ -34,6 +34,10 @@
     [d['WA'] for d in conn.call('/SAPDS/RFC_READ_TABLE', QUERY_TABLE = '/SCWM/ORDIM_C',
         DELIMITER = '|', FIELDS = ['TANUM', 'CONFIRMED_AT_WH'],
         OPTIONS = ["CONFIRMED_AT_WH GE 20210803000000 AND CONFIRMED_AT_WH LT 20210804000000 AND LGNUM EQ 'WH01'"])['DATA']]
+##### [Example](saptoxl.py) download SAP table and insert into [spreadsheet](mypivot.xlsx)
+###### Build a single file execuatable
+    pyinstaller --onefile saptoxl.py
+	copy dist\saptoxl.exe .t
 #### Execute [an ABAP report from an external file](ZEWM_INCONSISTANT_ROUTES.abap)
     with open('ZEWM_INCONSISTANT_ROUTES.abap') as f:
         prog = f.read().splitlines()
